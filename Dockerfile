@@ -42,5 +42,5 @@ ARG NGINX_RTMP_VERSION
 COPY --from=builder /opt/nginx/modules/ngx_rtmp_module.so /usr/lib/nginx/modules/
 COPY --from=builder /build/nginx-rtmp-module-${NGINX_RTMP_VERSION}/stat.xsl /var/www/rtmp/
 
-RUN echo "load_module modules/ngx_http_rtmp_module.so;" | cat - /etc/nginx/nginx.conf > /tmp/nginx.conf && \
+RUN echo "load_module modules/ngx_rtmp_module.so;" | cat - /etc/nginx/nginx.conf > /tmp/nginx.conf && \
     cp /tmp/nginx.conf /etc/nginx/nginx.conf
